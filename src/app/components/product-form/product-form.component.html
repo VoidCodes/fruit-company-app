@@ -1,0 +1,25 @@
+<div class="col-12">
+    <div class="form-group">
+        <label>Name</label>
+        <input [(ngModel)]="form.name" type="text" class="form-control" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label>Quantity</label>
+        <input [(ngModel)]="form.quantity" type="number" class="form-control" placeholder="Quantity">
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input [(ngModel)]="form.price" type="number" class="form-control" placeholder="Price">
+    </div>
+    <br>
+    <div *ngIf="index<0" style="text-align: center; ">
+        <button [disabled]="!isAddToCartEnabled()" (click)="addToCart() " style="margin: 0 auto;"
+            class="btn btn-primary">Add To Cart</button>
+    </div>
+    <div *ngIf="index>-1" style="text-align: center; ">
+        <button (click)="addToCart()" style="margin: 0 auto;" class="btn btn-primary">Save</button>
+        &nbsp;
+        <button (click)="cancelUpdate()" style="margin: 0 auto;" class="btn btn-secondary">Cancel</button>
+    </div>
+
+</div>

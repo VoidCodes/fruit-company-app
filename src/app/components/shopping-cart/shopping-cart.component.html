@@ -1,0 +1,40 @@
+<table class="table table-hover">
+    <thead>
+        <th>
+            Action
+        </th>
+        <th>
+            Name
+        </th>
+        <th class="num-cell">
+            Price
+        </th>
+        <th class="num-cell">
+            Quantity
+        </th>
+        <th class="num-cell">
+            Total
+        </th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products; let i = index;">
+            <td>
+                <button class="btn btn-warning" (click)="updateItem(product,i)">Update</button>
+                &nbsp;
+                <button class="btn btn-danger" (click)="deleteItem(i)">Delete</button>
+            </td>
+            <td>{{product.name}}</td>
+            <td class="num-cell">${{product.price| number:'.2' }}</td>
+            <td class="num-cell">{{product.quantity| number:'.2'}}</td>
+            <td class="num-cell">${{product.quantity * product.price | number:'.2'}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td colspan=" 3"><strong>Total:</strong></td>
+            <td class="num-cell"><strong>${{totalPrice | number:'.2'}}</strong></td>
+        </tr>
+    </tfoot>
+</table>
